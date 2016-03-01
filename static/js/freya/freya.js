@@ -2,9 +2,9 @@
  * Created by michael on 2/29/16.
  */
 
-(function(app) {
+(function(freya) {
     document.addEventListener('DOMContentLoaded', function()
     {
-        ng.platform.browser.bootstrap(app.AppComponent);
+        ng.platform.browser.bootstrap(freya.AppComponent);
     });
-})(window.app || (window.app = {}));
+})(window.freya || (window.freya = {}));
