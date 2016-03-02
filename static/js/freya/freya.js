@@ -3,7 +3,7 @@
  */
 
 (function(freya) {
-    document.addEventListener('DOMContentLoaded', function()
+    document.addEventListener("DOMContentLoaded", function()
     {
         ng.platform.browser.bootstrap(freya.AppComponent);
     });

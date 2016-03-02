@@ -1,0 +1,19 @@
+<div class="freya-fragment-title">
+    <div class="pull-left">
+        <table>
+            <tr>
+                <td>
+                    <button (click)="addTab()" class="btn btn-lg glyphicon glyphicon-plus"></button>
+                </td>
+                <td *ngFor="#tab of tabs">
+                    <msfy-tab [tabTitle]="count"></msfy-tab>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="pull-right">
+        <div>
+            <h1>Freya</h1>
+        </div>
+    </div>
+</div>
