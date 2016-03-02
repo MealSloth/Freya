@@ -11,7 +11,7 @@
         })
             .Class({
                 constructor: function() {}
-            })
+            });
     var title =
         ng.core.Component({
             selector: "msfy-title",
