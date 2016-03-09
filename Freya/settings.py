@@ -38,6 +38,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_URL = '/login/'
+
 MEDIA_ROOT = ''
 
 MEDIA_URL = ''
@@ -87,9 +89,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Freya',
+    'Chimera',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
 LOGGING = {
     'version': 1,
@@ -114,3 +119,14 @@ LOGGING = {
         },
     }
 }
+
+CACHES = {
+    'default': {
+        'BACKEND': 'Freya.gae_memcached_cache.GaeMemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
+
+# For testing authentication
+AUTH_TEST_USER_USERNAME = 'authtestuser'
+AUTH_TEST_USER_PASSWORD = 's5dfBekmGW48KfNxb7q8Je2N'

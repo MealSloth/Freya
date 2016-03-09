@@ -7,7 +7,8 @@
     var tab =
         ng.core.Component({
             selector: "msfy-tab",
-            templateUrl: "/static/html/component/fragment/tab.html"
+            templateUrl: "/static/html/component/fragment/tab.html",
+            inputs: ['tabTitle']
         })
             .Class({
                 constructor: function() {}

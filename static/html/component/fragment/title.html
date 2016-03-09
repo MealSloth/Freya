@@ -6,7 +6,7 @@
                     <button (click)="addTab()" class="btn btn-lg glyphicon glyphicon-plus"></button>
                 </td>
                 <td *ngFor="#tab of tabs">
-                    <msfy-tab [tabTitle]="count"></msfy-tab>
+                    <msfy-tab [tabTitle] = "count"></msfy-tab>
                 </td>
             </tr>
         </table>
