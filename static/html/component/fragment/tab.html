@@ -3,6 +3,6 @@
         <span class="glyphicon glyphicon-plus"></span>
     </button>
     <button *ngIf="tabTitle !== ''" class="btn btn-lg">
-        <a>#{{ tabTitle }}<span class="glyphicon glyphicon-remove"></span></a>
+        #{{ tabTitle }}<a (click)="removeSelf()"><span class="glyphicon glyphicon-remove"></span></a>
     </button>
 </div>

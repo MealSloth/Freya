@@ -10,10 +10,22 @@
         ng.core.Component({
             selector: "msfy-tab",
             templateUrl: "/static/html/component/fragment/tab.html",
-            inputs: ['tabTitle']
+            inputs: ['tabTitle', 'tabs']
         })
             .Class({
-                constructor: function() {}
+                constructor: function() {},
+                ngOnInit: function() {
+                    if (this.tabs != null) {
+                        this.tabTitle = this.tabs[this.tabs.length - 1];
+                    }
+                    else {
+                        this.tabTitle = "";
+                    }
+                },
+                removeSelf: function() {
+                    var index = this.tabs.indexOf(this.tabTitle);
+                    this.tabs.splice(index, index + 1);
+                }
             });
     var Title =
         ng.core.Component({
@@ -22,13 +34,11 @@
             directives: [Tab]
         })
             .Class({
-                constructor: function()
-                {
+                constructor: function() {
                     this.count = 0;
                     this.tabs = [];
                 },
-                addTab: function()
-                {
+                addTab: function() {
                     ++this.count;
                     this.tabs.push(this.count);
                 }
