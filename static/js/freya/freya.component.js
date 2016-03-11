@@ -2,9 +2,11 @@
  * Created by michael on 2/29/16.
  */
 
+"use strict";
+
 (function(freya) {
     /** Child components **/
-    var tab =
+    var Tab =
         ng.core.Component({
             selector: "msfy-tab",
             templateUrl: "/static/html/component/fragment/tab.html",
@@ -13,23 +15,21 @@
             .Class({
                 constructor: function() {}
             });
-    var title =
+    var Title =
         ng.core.Component({
             selector: "msfy-title",
             templateUrl: "/static/html/component/fragment/title.html",
-            directives: [tab]
+            directives: [Tab]
         })
             .Class({
                 constructor: function()
                 {
-                    "use strict";
                     this.count = 0;
                     this.tabs = [];
                 },
                 addTab: function()
                 {
-                    "use strict";
-                    this.count = this.count + 1;
+                    ++this.count;
                     this.tabs.push(this.count);
                 }
             });
@@ -38,7 +38,7 @@
         ng.core.Component({
             selector: "msfy-main",
             templateUrl: "/static/html/component/main.html",
-            directives: [title, tab]
+            directives: [Title, Tab]
         })
             .Class({
                 constructor: function() {}

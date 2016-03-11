@@ -3,10 +3,10 @@
         <table>
             <tr>
                 <td>
-                    <button (click)="addTab()" class="btn btn-lg glyphicon glyphicon-plus"></button>
+                    <msfy-tab (click)="addTab()" [tabTitle] = "''"></msfy-tab>
                 </td>
-                <td *ngFor="#tab of tabs">
-                    <msfy-tab [tabTitle] = "count"></msfy-tab>
+                <td *ngFor="#tab of tabs; #i = index">
+                    <msfy-tab [tabTitle] = "tabs[i]"></msfy-tab>
                 </td>
             </tr>
         </table>
