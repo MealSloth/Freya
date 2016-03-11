@@ -24,7 +24,10 @@
                 },
                 removeSelf: function() {
                     var index = this.tabs.indexOf(this.tabTitle);
-                    this.tabs.splice(index, index + 1);
+                    console.log(this.tabs);
+                    console.log(index);
+                    this.tabs.splice(index, 1);
+                    console.log(this.tabs);
                 }
             });
     var Title =
