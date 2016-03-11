@@ -38,13 +38,79 @@ var APIInteraction = function(interaction_id) {
         type: "POST",
         data: JSON.stringify(request),
         dataType: "json",
-        contentType: "application/json; charset=utf-8",
+        contentType: "application/json",
         success: function (response, status, jqXHR) {
             console.log(response);
             return response;
         },
         error: function (jqXHR, status, error) {
             console.log(error);
+        }
+    })
+};
+
+var APIInteractionCreate = function(user_id) {
+    var request = {};
+    request["user_id"] = user_id;
+    ajaxPrepare();
+    console.log(request);
+    $.ajax({
+        url: "/interaction/create/",
+        type: "POST",
+        data: JSON.stringify(request),
+        dataType: "json",
+        contentType: "application/json",
+        success: function (response, status, jqXHR) {
+            console.log(response);
+            return response;
+        },
+        error: function (jqXHR, status, error) {
+            console.log(error);
+            return error;
+        }
+    })
+};
+
+var APIInteractionEdit = function(interaction_id) {
+    var request = {};
+    request["interaction_id"] = interaction_id;
+    ajaxPrepare();
+    console.log(request);
+    $.ajax({
+        url: "/interaction/edit/",
+        type: "POST",
+        data: JSON.stringify(request),
+        dataType: "json",
+        contentType: "application/json",
+        success: function (response, status, jqXHR) {
+            console.log(response);
+            return response;
+        },
+        error: function (jqXHR, status, error) {
+            console.log(error);
+            return error;
+        }
+    })
+};
+
+var APIInteractionDelete = function(interaction_id) {
+    var request = {};
+    request["interaction_id"] = interaction_id;
+    ajaxPrepare();
+    console.log(request);
+    $.ajax({
+        url: "/interaction/delete/",
+        type: "POST",
+        data: JSON.stringify(request),
+        dataType: "json",
+        contentType: "application/json",
+        success: function (response, status, jqXHR) {
+            console.log(response);
+            return response;
+        },
+        error: function (jqXHR, status, error) {
+            console.log(error);
+            return error;
         }
     })
 };
