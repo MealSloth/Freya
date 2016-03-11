@@ -6,6 +6,54 @@
 
 (function(freya) {
     /** Child components **/
+    var Interaction =
+        ng.core.Component({
+            selector: "msfy-interaction",
+            templateUrl: "/static/html/component/fragment/interaction.html",
+            inputs: ['data']
+        })
+            .Class({
+                constructor: function() {},
+                getCookie: function(name) {
+                    var cookieValue = null;
+                    if (document.cookie && document.cookie != '') {
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = jQuery.trim(cookies[i]);
+                            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                break;
+                            }
+                        }
+                    }
+                    return cookieValue;
+                },
+                getData: function() {
+                    var request = {};
+                    var csrftoken = this.getCookie('csrftoken');
+                    request["interaction_id"] = "19cf9f4d-4dbb-4737-9332-6453b32f9988";
+                    $.ajaxSetup({
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                        }
+                    });
+                    console.log(request);
+                    $.ajax({
+                        url: "/interaction/",
+                        type: "POST",
+                        data: JSON.stringify(request),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function(response, status, jqXHR) {
+                            console.log(response);
+                            return response;
+                        },
+                        error: function(jqXHR, status, error) {
+                            console.log(error);
+                        }
+                    })
+                }
+            });
     var Tab =
         ng.core.Component({
             selector: "msfy-tab",
@@ -24,10 +72,7 @@
                 },
                 removeSelf: function() {
                     var index = this.tabs.indexOf(this.tabTitle);
-                    console.log(this.tabs);
-                    console.log(index);
                     this.tabs.splice(index, 1);
-                    console.log(this.tabs);
                 }
             });
     var Title =
@@ -51,7 +96,7 @@
         ng.core.Component({
             selector: "msfy-main",
             templateUrl: "/static/html/component/main.html",
-            directives: [Title, Tab]
+            directives: [Title, Tab, Interaction]
         })
             .Class({
                 constructor: function() {}
