@@ -1,5 +1,6 @@
 from _include.Chimera.Chimera.view.interaction import view_interaction, view_interaction_create
 from _include.Chimera.Chimera.view.interaction import view_interaction_edit, view_interaction_delete
+from _include.Chimera.Chimera.view.user import view_user
 from view.auth import view_auth_user_add, view_login, view_logout
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.contrib.auth.decorators import login_required
@@ -39,3 +40,7 @@ def interaction_create(request):
 
 def interaction_edit(request):
     return view_interaction_edit.interaction_edit(request)
+
+
+def user(request):
+    return view_user.user(request)

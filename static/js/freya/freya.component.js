@@ -6,10 +6,23 @@
 
 (function(freya) {
     /** Child components **/
+    var UserInfo =
+        ng.core.Component({
+            selector: "msfy-user-info",
+            templateUrl: "/static/html/component/fragment/user-info.html"
+        })
+            .Class({
+                constructor: function() {
+                    this.getData("57a8e6c8-dc7e-461d-9854-8a96bd88e4b7");
+                },
+                getData: function(userID) {
+                    APIUser(userID, this);
+                }
+            });
     var InteractionList =
         ng.core.Component({
             selector: "msfy-interaction-list",
-            templateUrl: "/static/html/component/fragment/interaction-list.html",
+            templateUrl: "/static/html/component/fragment/interaction-list.html"
         })
             .Class({
                 constructor: function() {
@@ -22,15 +35,15 @@
     var Interaction =
         ng.core.Component({
             selector: "msfy-interaction",
-            templateUrl: "/static/html/component/fragment/interaction.html",
+            templateUrl: "/static/html/component/fragment/interaction.html"
         })
             .Class({
                 constructor: function()
                 {
                     this.getData("19cf9f4d-4dbb-4737-9332-6453b32f9988");
                 },
-                getData: function(interaction_id) {
-                    APIInteraction(interaction_id, this);
+                getData: function(interactionID) {
+                    APIInteraction(interactionID, this);
                 }
             });
     var Tab =
@@ -75,7 +88,7 @@
         ng.core.Component({
             selector: "msfy-main",
             templateUrl: "/static/html/component/main.html",
-            directives: [Title, Tab, Interaction, InteractionList]
+            directives: [Title, Tab, Interaction, InteractionList, UserInfo]
         })
             .Class({
                 constructor: function() {}

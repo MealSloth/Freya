@@ -30,9 +30,7 @@ var ajaxPrepare = function() {
 
 var APIInteraction = function(interaction_id, context) {
     var request = {};
-    if (interaction_id !== null) {
-        request["interaction_id"] = interaction_id;
-    }
+    request["interaction_id"] = interaction_id;
     ajaxPrepare();
     $.ajax({
         url: "/interaction/",
@@ -66,7 +64,6 @@ var APIInteractions = function(context) {
         dataType: "json",
         contentType: "application/json",
         success: function (response, status, jqXHR) {
-            console.log(response);
             context.interactions = response["interactions"];
         },
         error: function (jqXHR, status, error) {
@@ -127,6 +124,33 @@ var APIInteractionDelete = function(interaction_id) {
             return response;
         },
         error: function (jqXHR, status, error) {
+            return error;
+        }
+    })
+};
+
+var APIUser = function(user_id, context) {
+    var request = {};
+    request["user_id"] = user_id;
+    ajaxPrepare();
+    $.ajax({
+        url: "/user/",
+        type: "POST",
+        data: JSON.stringify(request),
+        dataType: "json",
+        contentType: "application/json",
+        success: function(response, status, jqXHR) {
+            var user = response["user"];
+            context.userID = user["id"];
+            context.email = user["email"];
+            context.firstName = user["first_name"];
+            context.lastName = user["last_name"];
+            context.phoneNumber = user["phone_number"];
+            context.dateOfBirth = user["date_of_birth"];
+            context.gender = UserGenderEnum[user["gender"]];
+            context.joinDate = user["join_date"].substring(0,10) + " " + user["join_date"].substring(11,16);
+        },
+        error: function(jqXHR, status, error) {
             return error;
         }
     })

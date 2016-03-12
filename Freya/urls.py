@@ -13,4 +13,5 @@ urlpatterns = patterns(
     url(r'^interaction/create/', views.interaction_create, name='interaction/create/'),
     url(r'^interaction/edit/', views.interaction_edit, name='interaction/edit/'),
     url(r'^interaction/', views.interaction, name='interaction/'),
+    url(r'^user/', views.user, name='user/'),
 )
