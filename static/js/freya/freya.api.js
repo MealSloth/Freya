@@ -146,7 +146,7 @@ var APIUser = function(user_id, context) {
             context.firstName = user["first_name"];
             context.lastName = user["last_name"];
             context.phoneNumber = user["phone_number"];
-            context.dateOfBirth = user["date_of_birth"];
+            context.dateOfBirth = user["date_of_birth"].substring(0,10);
             context.gender = UserGenderEnum[user["gender"]];
             context.joinDate = user["join_date"].substring(0,10) + " " + user["join_date"].substring(11,16);
         },
