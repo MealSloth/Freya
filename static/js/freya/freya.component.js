@@ -13,9 +13,13 @@
             inputs: ['data']
         })
             .Class({
-                constructor: function() {},
-                getData: function() {
-                    return APIInteraction("19cf9f4d-4dbb-4737-9332-6453b32f9988");
+                constructor: function()
+                {
+                    this.getData("19cf9f4d-4dbb-4737-9332-6453b32f9988");
+                },
+                getData: function(interaction_id) {
+                    console.log("Starting");
+                    APIInteraction(interaction_id, this);
                 }
             });
     var Tab =

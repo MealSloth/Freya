@@ -1,6 +1,39 @@
-<div>
-    <h2>Test</h2>
+<div class="col-xs-4 freya-fragment-interaction">
+    <h5>Interaction {{ interactionID }}</h5>
     <div>
-
+        <form method="post" action="/interaction/edit/">
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="User ID" value="{{ userID }}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Assignee ID" value="{{ assigneeID }}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea placeholder="Title" rows="4">{{ messageTitle }}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea placeholder="Message" rows="4">{{ messageBody }}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Time Created: {{ time }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" class="btn btn-info">
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
 </div>

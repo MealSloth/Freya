@@ -28,11 +28,10 @@ var ajaxPrepare = function() {
     });
 };
 
-var APIInteraction = function(interaction_id) {
+var APIInteraction = function(interaction_id, context) {
     var request = {};
     request["interaction_id"] = interaction_id;
     ajaxPrepare();
-    console.log(request);
     $.ajax({
         url: "/interaction/",
         type: "POST",
@@ -40,20 +39,25 @@ var APIInteraction = function(interaction_id) {
         dataType: "json",
         contentType: "application/json",
         success: function (response, status, jqXHR) {
-            console.log(response);
-            return response;
+            var interaction = response["interaction"];
+            context.interactionID = interaction["id"];
+            context.userID = interaction["user_id"];
+            context.assigneeID = interaction["assignee_id"];
+            context.interactionType = interaction["interaction_type"];
+            context.messageTitle = interaction["message_title"];
+            context.messageBody = interaction["message_body"];
+            context.time = interaction["time"].substring(0,10) + " " + interaction["time"].substring(11,16);
         },
         error: function (jqXHR, status, error) {
-            console.log(error);
+            return error;
         }
-    })
+    });
 };
 
 var APIInteractionCreate = function(user_id) {
     var request = {};
     request["user_id"] = user_id;
     ajaxPrepare();
-    console.log(request);
     $.ajax({
         url: "/interaction/create/",
         type: "POST",
@@ -61,11 +65,9 @@ var APIInteractionCreate = function(user_id) {
         dataType: "json",
         contentType: "application/json",
         success: function (response, status, jqXHR) {
-            console.log(response);
             return response;
         },
         error: function (jqXHR, status, error) {
-            console.log(error);
             return error;
         }
     })
@@ -75,7 +77,6 @@ var APIInteractionEdit = function(interaction_id) {
     var request = {};
     request["interaction_id"] = interaction_id;
     ajaxPrepare();
-    console.log(request);
     $.ajax({
         url: "/interaction/edit/",
         type: "POST",
@@ -83,11 +84,9 @@ var APIInteractionEdit = function(interaction_id) {
         dataType: "json",
         contentType: "application/json",
         success: function (response, status, jqXHR) {
-            console.log(response);
             return response;
         },
         error: function (jqXHR, status, error) {
-            console.log(error);
             return error;
         }
     })
@@ -97,7 +96,6 @@ var APIInteractionDelete = function(interaction_id) {
     var request = {};
     request["interaction_id"] = interaction_id;
     ajaxPrepare();
-    console.log(request);
     $.ajax({
         url: "/interaction/delete/",
         type: "POST",
@@ -105,11 +103,9 @@ var APIInteractionDelete = function(interaction_id) {
         dataType: "json",
         contentType: "application/json",
         success: function (response, status, jqXHR) {
-            console.log(response);
             return response;
         },
         error: function (jqXHR, status, error) {
-            console.log(error);
             return error;
         }
     })
