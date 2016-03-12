@@ -30,7 +30,9 @@ var ajaxPrepare = function() {
 
 var APIInteraction = function(interaction_id, context) {
     var request = {};
-    request["interaction_id"] = interaction_id;
+    if (interaction_id !== null) {
+        request["interaction_id"] = interaction_id;
+    }
     ajaxPrepare();
     $.ajax({
         url: "/interaction/",
@@ -52,6 +54,25 @@ var APIInteraction = function(interaction_id, context) {
             return error;
         }
     });
+};
+
+var APIInteractions = function(context) {
+    var request = {"foo": "bar"};
+    ajaxPrepare();
+    $.ajax({
+        url: "/interaction/",
+        type: "POST",
+        data: JSON.stringify(request),
+        dataType: "json",
+        contentType: "application/json",
+        success: function (response, status, jqXHR) {
+            console.log(response);
+            context.interactions = response["interactions"];
+        },
+        error: function (jqXHR, status, error) {
+            return error;
+        }
+    })
 };
 
 var APIInteractionCreate = function(user_id) {

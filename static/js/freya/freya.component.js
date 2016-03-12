@@ -6,11 +6,23 @@
 
 (function(freya) {
     /** Child components **/
+    var InteractionList =
+        ng.core.Component({
+            selector: "msfy-interaction-list",
+            templateUrl: "/static/html/component/fragment/interaction-list.html",
+        })
+            .Class({
+                constructor: function() {
+                    this.getData();
+                },
+                getData: function() {
+                    APIInteractions(this);
+                }
+            });
     var Interaction =
         ng.core.Component({
             selector: "msfy-interaction",
             templateUrl: "/static/html/component/fragment/interaction.html",
-            inputs: ['data']
         })
             .Class({
                 constructor: function()
@@ -18,7 +30,6 @@
                     this.getData("19cf9f4d-4dbb-4737-9332-6453b32f9988");
                 },
                 getData: function(interaction_id) {
-                    console.log("Starting");
                     APIInteraction(interaction_id, this);
                 }
             });
@@ -64,7 +75,7 @@
         ng.core.Component({
             selector: "msfy-main",
             templateUrl: "/static/html/component/main.html",
-            directives: [Title, Tab, Interaction]
+            directives: [Title, Tab, Interaction, InteractionList]
         })
             .Class({
                 constructor: function() {}
