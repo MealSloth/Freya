@@ -2,7 +2,9 @@
  * Created by michael on 3/11/16.
  */
 
-API = {
+"use strict";
+
+Freya.API = {
     Interaction: {
         Get: function (interaction_id, context) {
             var request = {};
@@ -105,7 +107,7 @@ API = {
         Get: function (user_id, context) {
             var request = {};
             request["user_id"] = user_id;
-            CookieHelper.AjaxAppendCSRFHeader();
+            Freya.Helper.CookieHelper.AjaxAppendCSRFHeader();
             $.ajax({
                 url: "/user/",
                 type: "POST",
@@ -120,7 +122,7 @@ API = {
                     context.lastName = user["last_name"];
                     context.phoneNumber = user["phone_number"];
                     context.dateOfBirth = user["date_of_birth"].substring(0, 10);
-                    context.gender = UserGenderEnum[user["gender"]];
+                    context.gender = Freya.Enum.UserGenderEnum[user["gender"]];
                     context.joinDate = user["join_date"].substring(0, 10) + " " + user["join_date"].substring(11, 16);
                 },
                 error: function (jqXHR, status, error) {

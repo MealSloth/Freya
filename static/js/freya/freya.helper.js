@@ -2,7 +2,11 @@
  * Created by michael on 7/22/16.
  */
 
-CookieHelper = {
+"use strict";
+
+Freya.Helper = {};
+
+Freya.Helper.CookieHelper = {
     GetCookie: function(name) {
         var cookieValue = null;
         if (document.cookie && document.cookie != "") {
@@ -18,7 +22,7 @@ CookieHelper = {
         return cookieValue;
     },
     AjaxAppendCSRFHeader: function() {
-        var csrftoken = CookieHelper.GetCookie("csrftoken");
+        var csrftoken = Freya.Helper.CookieHelper.GetCookie("csrftoken");
         $.ajaxSetup({
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("X-CSRFToken", csrftoken);
