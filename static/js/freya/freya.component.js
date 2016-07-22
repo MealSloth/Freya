@@ -16,7 +16,7 @@
                     this.getData("57a8e6c8-dc7e-461d-9854-8a96bd88e4b7");
                 },
                 getData: function(userID) {
-                    APIUser(userID, this);
+                    API.User.Get(userID, this);
                 }
             });
     var InteractionList =
@@ -29,7 +29,7 @@
                     this.getData();
                 },
                 getData: function() {
-                    APIInteractions(this);
+                    API.Interaction.GetAll(this);
                 }
             });
     var Interaction =
@@ -43,14 +43,14 @@
                     this.getData("19cf9f4d-4dbb-4737-9332-6453b32f9988");
                 },
                 getData: function(interactionID) {
-                    APIInteraction(interactionID, this);
+                    API.Interaction.Get(interactionID, this);
                 }
             });
     var Tab =
         ng.core.Component({
             selector: "msfy-tab",
             templateUrl: "/static/html/component/fragment/tab.html",
-            inputs: ['tabTitle', 'tabs']
+            inputs: ["tabTitle", "tabs"]
         })
             .Class({
                 constructor: function() {},
