@@ -4,12 +4,14 @@
 
 "use strict";
 
-Freya.API = {
-    Interaction: {
+(function (Freya) {
+    Freya.API = {};
+
+    Freya.API.Interaction = {
         Get: function (interaction_id, context) {
             var request = {};
             request["interaction_id"] = interaction_id;
-            CookieHelper.AjaxAppendCSRFHeader();
+            Freya.Helper.CookieHelper.AjaxAppendCSRFHeader();
             $.ajax({
                 url: "/interaction/",
                 type: "POST",
@@ -33,7 +35,7 @@ Freya.API = {
         },
         GetAll: function (context) {
             var request = {"foo": "bar"};
-            CookieHelper.AjaxAppendCSRFHeader();
+            Freya.Helper.CookieHelper.AjaxAppendCSRFHeader();
             $.ajax({
                 url: "/interaction/",
                 type: "POST",
@@ -51,7 +53,7 @@ Freya.API = {
         Create: function (user_id) {
             var request = {};
             request["user_id"] = user_id;
-            CookieHelper.AjaxAppendCSRFHeader();
+            Freya.Helper.CookieHelper.AjaxAppendCSRFHeader();
             $.ajax({
                 url: "/interaction/create/",
                 type: "POST",
@@ -69,7 +71,7 @@ Freya.API = {
         Edit: function (interaction_id) {
             var request = {};
             request["interaction_id"] = interaction_id;
-            CookieHelper.AjaxAppendCSRFHeader();
+            Freya.Helper.CookieHelper.AjaxAppendCSRFHeader();
             $.ajax({
                 url: "/interaction/edit/",
                 type: "POST",
@@ -87,7 +89,7 @@ Freya.API = {
         Delete: function (interaction_id) {
             var request = {};
             request["interaction_id"] = interaction_id;
-            CookieHelper.AjaxAppendCSRFHeader();
+            Freya.Helper.CookieHelper.AjaxAppendCSRFHeader();
             $.ajax({
                 url: "/interaction/delete/",
                 type: "POST",
@@ -102,8 +104,9 @@ Freya.API = {
                 }
             })
         }
-    },
-    User: {
+    };
+
+    Freya.API.User = {
         Get: function (user_id, context) {
             var request = {};
             request["user_id"] = user_id;
@@ -130,5 +133,5 @@ Freya.API = {
                 }
             })
         }
-    }
-};
+    };
+})(window.Freya || (window.Freya = {}));

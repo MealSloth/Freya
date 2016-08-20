@@ -2,10 +2,12 @@
  * Created by michael on 2/29/16.
  */
 
-Freya = {};
+"use strict";
 
-(function(freya) {
+(function (Freya) {
     document.addEventListener("DOMContentLoaded", function() {
-        ng.platform.browser.bootstrap(freya.AppComponent);
+        ng.platformBrowserDynamic
+            .platformBrowserDynamic()
+            .bootstrapModule(Freya.AppModule);
     });
-})(window.freya || (window.freya = {}));
+})(window.Freya || (window.Freya = {}));

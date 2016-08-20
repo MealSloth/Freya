@@ -1,6 +1,6 @@
 <div class="col-xs-4 freya-fragment-interaction-list">
     <table>
-        <tr *ngFor="#interaction of interactions">
+        <tr *ngFor="let interaction of interactions">
             <td>{{ interaction.id }}</td>
             <td>{{ interaction.message_title }}</td>
         </tr>

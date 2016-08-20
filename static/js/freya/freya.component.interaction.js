@@ -4,30 +4,40 @@
 
 "use strict";
 
-Freya.Component.Interaction = {
-    Interaction: ng.core.Component({
-            selector: "msfy-interaction",
-            templateUrl: "/static/html/component/fragment/interaction.html"
-        })
+(function (Freya) {
+    (Freya.Component || (Freya.Component = {}));
+
+    Freya.Component.Interaction = {};
+
+    Freya.Component.Interaction.Interaction =
+        ng.core
+            .Component({
+                selector: "msfy-interaction",
+                templateUrl: "/static/html/component/fragment/interaction.html"
+            })
             .Class({
-                constructor: function()
-                {
+                constructor: function () {
+                    console.log("Interaction");
                     this.getData("19cf9f4d-4dbb-4737-9332-6453b32f9988");
                 },
-                getData: function(interactionID) {
-                    API.Interaction.Get(interactionID, this);
+                getData: function (interactionID) {
+                    Freya.API.Interaction.Get(interactionID, this);
                 }
-            }),
-    InteractionList: ng.core.Component({
-            selector: "msfy-interaction-list",
-            templateUrl: "/static/html/component/fragment/interaction-list.html"
-        })
+            });
+
+    Freya.Component.Interaction.InteractionList =
+        ng.core
+            .Component({
+                selector: "msfy-interaction-list",
+                templateUrl: "/static/html/component/fragment/interaction-list.html"
+            })
             .Class({
-                constructor: function() {
+                constructor: function () {
+                    console.log("InteractionList");
                     this.getData();
                 },
-                getData: function() {
-                    API.Interaction.GetAll(this);
+                getData: function () {
+                    Freya.API.Interaction.GetAll(this);
                 }
-            })
-};
+            });
+})(window.Freya || (window.Freya = {}));

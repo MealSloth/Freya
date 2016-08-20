@@ -14,20 +14,25 @@
         <script src="{% static 'js/plugins/bootstrap.min.js' %}" type="text/javascript"></script>
 
         <!--Angular references-->
-        <script src="{% static 'js/node_modules/es6-shim/es6-shim.min.js' %}"></script>
-        <script src="{% static 'js/node_modules/angular2/es6/dev/src/testing/shims_for_IE.js' %}"></script>
-        <script src="{% static 'js/node_modules/angular2/bundles/angular2-polyfills.js' %}"></script>
+        <script src="{% static 'js/node_modules/core-js/client/shim.min.js' %}"></script>
+        <script src="{% static 'js/node_modules/zone.js/dist/zone.js' %}"></script>
+        <script src="{% static 'js/node_modules/reflect-metadata/Reflect.js' %}"></script>
         <script src="{% static 'js/node_modules/rxjs/bundles/Rx.umd.js' %}"></script>
-        <script src="{% static 'js/node_modules/angular2/bundles/angular2-all.umd.js' %}"></script>
+        <script src="{% static 'js/node_modules/@angular/core/bundles/core.umd.js' %}"></script>
+        <script src="{% static 'js/node_modules/@angular/common/bundles/common.umd.js' %}"></script>
+        <script src="{% static 'js/node_modules/@angular/compiler/bundles/compiler.umd.js' %}"></script>
+        <script src="{% static 'js/node_modules/@angular/platform-browser/bundles/platform-browser.umd.js' %}"></script>
+        <script src="{% static 'js/node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js' %}"></script>
 
         <!--Freya references-->
         <script src="{% static 'js/freya/freya.api.js' %}"></script>
-        <script src="{% static 'js/freya/freya.component.interaction.js' %}"></script>
-        <script src="{% static 'js/freya/freya.component.js' %}"></script>
-        <script src="{% static 'js/freya/freya.component.ui.js' %}"></script>
-        <script src="{% static 'js/freya/freya.component.user.js' %}"></script>
         <script src="{% static 'js/freya/freya.enum.js' %}"></script>
         <script src="{% static 'js/freya/freya.helper.js' %}"></script>
+        <script src="{% static 'js/freya/freya.component.interaction.js' %}"></script>
+        <script src="{% static 'js/freya/freya.component.ui.js' %}"></script>
+        <script src="{% static 'js/freya/freya.component.user.js' %}"></script>
+        <script src="{% static 'js/freya/freya.component.js' %}"></script>
+        <script src="{% static 'js/freya/freya.module.js' %}"></script>
         <script src="{% static 'js/freya/freya.js' %}"></script>
 
     </head>

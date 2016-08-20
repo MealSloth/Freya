@@ -4,8 +4,10 @@
 
 "use strict";
 
-Freya.Helper = {
-    CookieHelper: {
+(function (Freya) {
+    Freya.Helper = {};
+
+    Freya.Helper.CookieHelper = {
         GetCookie: function (name) {
             var cookieValue = null;
             if (document.cookie && document.cookie != "") {
@@ -28,5 +30,5 @@ Freya.Helper = {
                 }
             });
         }
-    }
-};
+    };
+})(window.Freya || (window.Freya = {}));

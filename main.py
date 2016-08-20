@@ -1,16 +1,10 @@
-import os, sys
-
-os.environ['DJANGO_SETTINGS_MODULE'] = 'Freya.settings'
-
 from google.appengine.ext.webapp import util
+import django.core.handlers.wsgi
 from django.conf import settings
+import django.db
+
 
 settings._target = None
-
-import django.core.handlers.wsgi
-import django.core.signals
-import django.db
-import django.dispatch.dispatcher
 
 app = django.core.handlers.wsgi.WSGIHandler()
 

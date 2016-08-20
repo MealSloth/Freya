@@ -5,8 +5,8 @@
                 <td>
                     <msfy-tab (click)="addTab()"></msfy-tab>
                 </td>
-                <td *ngFor="#tab of tabs; #i = index">
-                    <msfy-tab [tabs] = "tabs"></msfy-tab>
+                <td *ngFor="let tab of tabs; let i = index">
+                    <!--<msfy-tab [tabs] = "tabs"></msfy-tab>-->
                 </td>
             </tr>
         </table>

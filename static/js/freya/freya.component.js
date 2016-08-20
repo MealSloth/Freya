@@ -4,23 +4,22 @@
 
 "use strict";
 
-Freya.Component = {};
-
-(function(freya) {
-    /** Main Component **/
-    freya.AppComponent =
-        ng.core.Component({
-            selector: "msfy-main",
-            templateUrl: "/static/html/component/main.html",
-            directives: [
-                Freya.Component.UI.Title,
-                Freya.Component.UI.Tab,
-                Freya.Component.Interaction.Interaction,
-                Freya.Component.Interaction.InteractionList,
-                Freya.Component.User.UserInfo
-            ]
-        })
+(function (Freya) {
+    Freya.AppComponent =
+        ng.core
+            .Component({
+                selector: "msfy-main",
+                templateUrl: "/static/html/component/main.html",
+                directives: [
+                    Freya.Component.UI.Title,
+                    Freya.Component.Interaction.Interaction,
+                    Freya.Component.Interaction.InteractionList,
+                    Freya.Component.User.UserInfo
+                ]
+            })
             .Class({
-                constructor: function() {}
+                constructor: function () {
+                    console.log("Freya");
+                }
             });
-})(window.freya || (window.freya = {}));
+})(window.Freya || (window.Freya = {}));
